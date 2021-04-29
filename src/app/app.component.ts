@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'home-cooking-app';
+  @Output() shownComponent: string = 'recipes';
+
+  constructor() {
+
+  }
+
+  onShowComponentEvent(componentToShow) {
+    console.log(componentToShow);
+    this.shownComponent = componentToShow;
+  }
 }

@@ -6,14 +6,9 @@ import { Component, Output } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @Output() shownComponent: string = 'recipes';
 
   constructor() {
 
   }
-
-  onShowComponentEvent(componentToShow) {
-    console.log(componentToShow);
-    this.shownComponent = componentToShow;
-  }
+  
 }

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class DataStorageService {
-  apiUrl: string = environment.apiUrl;
+  apiUrl: string = environment.recipeBookApiUrl;
   recipesEndpoint: string = '/recipes.json';
 
   constructor(private http: HttpClient,

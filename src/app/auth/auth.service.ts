@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -23,7 +24,7 @@ export class AuthService {
   private signupApiUrl = environment.signupApiUrl;
   private loginApiUrl = environment.loginApiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   singup(email: string, cred: string) {
     return this.http.post<AuthResponseData>(
@@ -51,6 +52,11 @@ export class AuthService {
       tap(response => {
         this.handleAuthentication(response);
       }));
+  }
+
+  lougout() {
+    this.user.next(null);
+    this.router.navigate(['/auth']);
   }
 
   private handleAuthentication(response) {

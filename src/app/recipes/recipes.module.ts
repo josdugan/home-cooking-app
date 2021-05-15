@@ -13,8 +13,8 @@ import { RecipesComponent } from "./recipes.component";
 @NgModule({
     declarations: [
         RecipesComponent,
-        RecipeListComponent,
         RecipeItemComponent,
+        RecipeListComponent,
         RecipeDetailsComponent,
         RecipeStartComponent,
         RecipeEditComponent,
